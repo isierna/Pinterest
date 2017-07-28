@@ -18,7 +18,6 @@ public class InitialTest {
 
     @BeforeMethod
     public void configureBrowser() {
-        System.setProperty("webdriver.gecko.driver", "/Users/vm/Documents/geckodriver");
         driver = new FirefoxDriver();
         driver.get("http://www.pinterest.com");
     }
