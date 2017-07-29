@@ -5,4 +5,5 @@
 src/main/resources/
 target/*
 src/test/results/
+*/.DS_Store
 
