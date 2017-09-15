@@ -45,7 +45,7 @@
                 <configuration>
                     <filesets>
                         <fileset>
-                            <directory>/Users/vm/IdeaProjects/pinteresttests/src/test/results</directory>
+                            <directory>/Users/ira/IdeaProjects/Pinterest/src/test/results</directory>
                             <includes>
                                 <include>**/*.tmp</include>
                                 <include>**/*.log</include>

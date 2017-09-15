@@ -1,9 +1,7 @@
 .idea
 
 *.iml
-.idea/
 src/main/resources/
-target/*
 src/test/results/
-*/.DS_Store
-
+*.DS_Store
+target/

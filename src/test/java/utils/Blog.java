@@ -19,9 +19,9 @@ import java.util.Map;
 
 public class Blog {
     static WebDriver driver;
-    static String maker = "Fuji";
-    static String model = "X-E2S(1)";
-    static String linkToFiles = "http://www.photographyblog.com/reviews/fujifilm_x_e2s_review/sample_images/";
+    static String maker = "Sony";
+    static String model = "a99_blog";
+    static String linkToFiles = "http://www.photographyblog.com/reviews/sony_a99_review/sample_images/";
     static String directory;
     static String main_directory;
 

@@ -21,9 +21,9 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 
 public class Dpreview {
     static WebDriver driver;
-    static String maker = "Fujifil";
-    static String model = "x-e2s";
-    static String linkToFiles = "";
+    static String maker = "Canon";
+    static String model = "6d_mII_dpreview";
+    static String linkToFiles = "https://www.dpreview.com/sample-galleries/8212334571/canon-eos-6d-mark-ii-sample-gallery";
     static String file_name;
     static WebElement link_element;
     static String link;
@@ -84,9 +84,9 @@ public class Dpreview {
         new File(main_directory).mkdir();
         new File(directory).mkdir();
 
-        driver.get("https://www.dpreview.com/");
+        driver.get(linkToFiles);
 
-        Actions action = new Actions(driver);
+        /*Actions action = new Actions(driver);
         WebElement element = driver.findElement(By.linkText("Sample Images"));
         action.moveToElement(element).perform();
         Thread.sleep(200);
@@ -98,7 +98,7 @@ public class Dpreview {
         WebElement link_to_camera = driver.findElement(By.partialLinkText("X-E2S"));
         link_to_camera.click();
 
-        waitUntil(presenceOfElementLocated(By.xpath("//div[@class=\"filmstrip\"]")));
+        waitUntil(presenceOfElementLocated(By.xpath("//div[@class=\"filmstrip\"]")));*/
 
         List<WebElement> strip_items = driver.findElements(By.xpath("//div[@class='filmstripImage']"));
         ArrayList<String> photo_links_urls = new ArrayList<String>();

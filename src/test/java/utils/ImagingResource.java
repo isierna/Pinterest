@@ -21,9 +21,9 @@ import java.util.List;
 
 public class ImagingResource {
     static WebDriver driver;
-    static String maker = "Olympus";
-    static String model = "Stylus 1s";
-    static String linkToFiles = "http://www.imaging-resource.com/PRODS/olympus-stylus-1/olympus-stylus-1THMB.HTM";
+    static String maker = "Canon";
+    static String model = "7DMII_gallery";
+    static String linkToFiles = "http://www.imaging-resource.com/PRODS/canon-7d-mark-ii/canon-7d-mark-iiGALLERY.HTM";
 
 
     @BeforeMethod
