@@ -1,6 +1,4 @@
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.RandomUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,14 +33,17 @@ public class InitialTest {
         return finalRegString;
     }
 
+    public void waitUntil(String elementXpath){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementXpath)));
+    }
+
 
     @Test
     public void testHome() {
-        //WebElement element = driver.findElement(By.xpath("//div[@data-reactid=13]"));
-        //element.getText().contains("Welcome to Pinterest");
-
-        //System.out.println(element.getText());
-
+       WebDriverWait wait = new WebDriverWait(driver,10);
+       wait.until(ExpectedConditions.textToBePresentInElement(By.xpath("//*"),"Welcome to Pinterest"));
+       System.out.println("Success");
     }
 
     @Test
@@ -69,11 +70,6 @@ public class InitialTest {
 
         wait.until(ExpectedConditions.textToBe(By.xpath("//div[@class=\'_su _st _sv _sm _5i _sn _np _nq _nr _ns\']"), "Tom"));
 
-        //Assert.assertTrue(userHeader.getText().contains("Tom"));
-
-        System.out.println();
-//        todo: add login button validation
-
 
     }
 
@@ -95,22 +91,29 @@ public class InitialTest {
 
         WebElement emailInput = driver.findElement(By.xpath("//fieldset[1]"));
         WebElement passwordInput = driver.findElement(By.xpath("//fieldset[2]"));
-/*
-        RandomStringUtils randomObject = new RandomStringUtils();
-        String random = randomObject.randomNumeric(3);*/
+        WebElement signUpButton = driver.findElement(By.xpath("//button[@class=\'red SignupButton active\']"));
+
         String userEmail = generateEmail() + "@gmail.com";
 
         emailInput.sendKeys(userEmail);
         passwordInput.click();
         passwordInput.sendKeys("123456zz");
+        signUpButton.click();
 
         System.out.println();
         wait.until(ExpectedConditions.textToBe(By.xpath("//div[@class=\'_su _st _sx _sl _5k _sn _sr _np _nq _nr _ns\']"), userEmail));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@aria-label=\'Full name\']")));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@aria-label=\'Age\']")));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@class=\'red comeOnInButton active\']")));
+        WebElement fullNameInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@aria-label=\'Full name\']")));
+        WebElement age = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@aria-label=\'Age\']")));
+        WebElement submitButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@class=\'red comeOnInButton active\']")));
+        WebElement gender = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[@class=\'Gender__tooltip\'][2]")));
 
 
+        fullNameInput.sendKeys("Tom");
+        age.sendKeys("18");
+        gender.click();
+        submitButton.click();
+
+        wait.until(ExpectedConditions.textToBe(By.xpath("//div[@class=\'_su _st _sv _sm _5i _sn _np _nq _nr _ns\']"), "Tom"));
     }
 
     @AfterMethod
