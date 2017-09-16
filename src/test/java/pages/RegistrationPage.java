@@ -44,4 +44,7 @@ public class RegistrationPage extends BasePage{
     @FindBy(xpath = "//div[@class=\'_su _st _sv _sm _5i _sn _np _nq _nr _ns\']")
     public WebElement userHomeHeader;
 
+    @FindBy(xpath = "//div[@class=\'_su _st _sx _sl _5k _sn _sr _np _nq _nr _ns\']")
+    public WebElement registrationStage2Container;
+
 }

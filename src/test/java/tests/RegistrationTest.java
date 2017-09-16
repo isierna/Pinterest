@@ -26,10 +26,11 @@ public class RegistrationTest extends BaseTest {
         registrationPage.passwordInput.sendKeys("123456zz");
         registrationPage.signUpButton.click();
 
+        registrationPage.waitUntil(registrationPage.registrationStage2Container);
         registrationPage.fullNameInput.sendKeys("Tom");
         registrationPage.age.sendKeys("16");
         registrationPage.gender.click();
-        registrationPage.signUpButton.click();
+        registrationPage.submitButton.click();
 
         Assert.assertTrue(registrationPage.userHomeHeader.getText().contains("Tom"));
     }
