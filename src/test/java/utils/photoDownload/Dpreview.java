@@ -1,12 +1,12 @@
-package utils;
+package utils.photoDownload;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,9 +21,9 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 
 public class Dpreview {
     static WebDriver driver;
-    static String maker = "Canon";
-    static String model = "6d_mII_dpreview";
-    static String linkToFiles = "https://www.dpreview.com/sample-galleries/8212334571/canon-eos-6d-mark-ii-sample-gallery";
+    static String maker = "panasonic";
+    static String model = "gx850_dpreview";
+    static String linkToFiles = "https://www.dpreview.com/sample-galleries/3702812878/panasonic-lumix-gx850-sample-gallery";
     static String file_name;
     static WebElement link_element;
     static String link;
@@ -77,7 +77,7 @@ public class Dpreview {
     }
 
     @Test
-    public static void dpPhotoDownload() throws InterruptedException, IOException {
+    public static void dpPhotoDownload() throws IOException {
         String main_directory = "/Users/Ira/temp/Dpreview/" + maker + "_" + model;
         String directory = main_directory + "/JPG&RAW";
 
@@ -86,22 +86,11 @@ public class Dpreview {
 
         driver.get(linkToFiles);
 
-        /*Actions action = new Actions(driver);
-        WebElement element = driver.findElement(By.linkText("Sample Images"));
-        action.moveToElement(element).perform();
-        Thread.sleep(200);
-        WebElement element1 = driver.findElement(By.linkText("Browse all"));
-        action.moveToElement(element1).perform();
-        Thread.sleep(200);
-        action.click(element1).perform();
-
-        WebElement link_to_camera = driver.findElement(By.partialLinkText("X-E2S"));
-        link_to_camera.click();
-
-        waitUntil(presenceOfElementLocated(By.xpath("//div[@class=\"filmstrip\"]")));*/
-
         List<WebElement> strip_items = driver.findElements(By.xpath("//div[@class='filmstripImage']"));
         ArrayList<String> photo_links_urls = new ArrayList<String>();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement imageElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='image'][1]")));
+        imageElement.click();
 
         for (int t=1; t<=strip_items.size(); t++) {
             WebElement u = driver.findElement(By.xpath("//div[@class='filmstripImage']" + "[" + t +"]"));

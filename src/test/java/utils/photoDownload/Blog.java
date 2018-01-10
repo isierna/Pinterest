@@ -1,4 +1,4 @@
-package utils;
+package utils.photoDownload;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,9 +19,9 @@ import java.util.Map;
 
 public class Blog {
     static WebDriver driver;
-    static String maker = "Sony";
-    static String model = "a99_blog";
-    static String linkToFiles = "http://www.photographyblog.com/reviews/sony_a99_review/sample_images/";
+    static String maker = "nikon";
+    static String model = "d7500_blog";
+    static String linkToFiles = "http://www.photographyblog.com/reviews/nikon_d7500_review/sample_images/";
     static String directory;
     static String main_directory;
 

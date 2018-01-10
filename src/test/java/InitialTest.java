@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.Random;
 
 public class InitialTest {
+
     WebDriver driver;
 
     @BeforeMethod

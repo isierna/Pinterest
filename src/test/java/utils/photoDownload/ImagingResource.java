@@ -1,4 +1,4 @@
-package utils;
+package utils.photoDownload;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -21,9 +21,9 @@ import java.util.List;
 
 public class ImagingResource {
     static WebDriver driver;
-    static String maker = "Canon";
-    static String model = "7DMII_gallery";
-    static String linkToFiles = "http://www.imaging-resource.com/PRODS/canon-7d-mark-ii/canon-7d-mark-iiGALLERY.HTM";
+    static String maker = "Panasonic";
+    static String model = "gx850_targets";
+    static String linkToFiles = "http://www.imaging-resource.com/PRODS/panasonic-gx850/panasonic-gx850A7.HTM";
 
 
     @BeforeMethod
@@ -73,7 +73,7 @@ public class ImagingResource {
         System.out.println(photo_links_urls);
 
 
-        for (int i = 0; i < photo_links.size(); i++) {
+        for (int i = 86; i < photo_links.size(); i++) {
             driver.get(photo_links_urls.get(i));
             try {
                 driver.findElement(By.linkText("Full Size Image")).click();

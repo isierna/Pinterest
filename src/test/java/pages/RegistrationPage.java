@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Helpers;
 
 public class RegistrationPage extends BasePage{
     public RegistrationPage(WebDriver driver) {
@@ -11,8 +12,9 @@ public class RegistrationPage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//button[@class='lightGrey active']")
-    public WebElement buttonToLoginPage;
+    /*public void at(WebElement element) {
+        Helpers.waitUntil(element, this.driver);
+    }*/
 
     @FindBy(xpath = "//button[@class='FullPageSignup__signupToggle']")
     public WebElement signUpLink;
@@ -29,7 +31,7 @@ public class RegistrationPage extends BasePage{
     @FindBy(xpath = "//button[@class=\'red SignupButton active\']")
     public WebElement signUpButton;
 
-    @FindBy(xpath = "//input[@aria-label=\'Full name\']")
+    @FindBy(xpath = "//input[@name=\'full_name\']")
     public WebElement fullNameInput;
 
     @FindBy(xpath = "//input[@aria-label=\'Age\']")
@@ -38,13 +40,10 @@ public class RegistrationPage extends BasePage{
     @FindBy(xpath = "//button[@class=\'red comeOnInButton active\']")
     public WebElement submitButton;
 
-    @FindBy(xpath = "//label[@class=\'Gender__tooltip\'][2]")
+    @FindBy(xpath = "//input[@name=\'gender\'][@value=\'male\']")
     public WebElement gender;
 
-    @FindBy(xpath = "//div[@class=\'_su _st _sv _sm _5i _sn _np _nq _nr _ns\']")
-    public WebElement userHomeHeader;
-
-    @FindBy(xpath = "//div[@class=\'_su _st _sx _sl _5k _sn _sr _np _nq _nr _ns\']")
+    @FindBy(xpath = "//div[@class=\'_st _ss _sw _sk _5j _sm _sq _no _np _nq _nr\']")
     public WebElement registrationStage2Container;
 
 }
