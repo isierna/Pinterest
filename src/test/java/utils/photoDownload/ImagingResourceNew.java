@@ -57,7 +57,7 @@ public class ImagingResourceNew {
             photo_links_urls.add(url);
         }
 
-        for (int i = 12; i < photo_links.size(); i++) {
+        for (int i = 0; i < photo_links.size(); i++) {
             driver.get(photo_links_urls.get(i));
             try {
                 driver.findElement(By.linkText("Full Size Image")).click();
